@@ -91,7 +91,7 @@ class Program
             Console.Write("¿Desea realizar otra operación en Pares e Impares? (s/n): ");
         } while (Console.ReadLine().Trim().ToLower() == "s");
     }
-
+    
     static void TablaDeMultiplicar()
     {
         do
@@ -110,5 +110,27 @@ class Program
             }
 
             Console.Write("¿Desea realizar otra operación en Tabla de Multiplicar? (s/n): ");
+        } while (Console.ReadLine().Trim().ToLower() == "s");
+    }
+static void Factorial()
+    {
+        do
+        {
+            Console.Write("Ingrese un número entero positivo: ");
+            if (int.TryParse(Console.ReadLine(), out int numero))
+            {
+                int factorial = 1;
+                for (int i = 1; i <= numero; i++)
+                {
+                    factorial *= i;
+                }
+                Console.WriteLine($"El factorial de {numero} es {factorial}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo.");
+            }
+
+            Console.Write("¿Desea calcular otro factorial? (s/n): ");
         } while (Console.ReadLine().Trim().ToLower() == "s");
     }
