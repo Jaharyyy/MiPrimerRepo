@@ -53,3 +53,62 @@ class Program
         }
     }
 }
+// Implementación de las funciones:
+
+    static void ParesImpares()
+    {
+        do
+        {
+            Console.Write("Ingrese un número entero positivo: ");
+            if (int.TryParse(Console.ReadLine(), out int numero))
+            {
+                Console.WriteLine("Pares: ");
+                for (int i = 0; i <= numero; i++)
+                {
+                    if (i % 2 == 0)
+                        Console.Write(i + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("Impares: ");
+                for (int i = 0; i <= numero; i++)
+                {
+                    if (i % 2 != 0)
+                        Console.Write(i + " ");
+                }
+                Console.WriteLine();
+
+                int sumaPares = Enumerable.Range(0, numero + 1).Where(x => x % 2 == 0).Sum();
+                int sumaImpares = Enumerable.Range(0, numero + 1).Where(x => x % 2 != 0).Sum();
+                Console.WriteLine($"Suma de pares: {sumaPares}");
+                Console.WriteLine($"Suma de impares: {sumaImpares}");
+                Console.WriteLine(sumaPares > sumaImpares ? "La suma de pares es mayor que la suma de impares." : "La suma de impares es mayor que la suma de pares.");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo.");
+            }
+
+            Console.Write("¿Desea realizar otra operación en Pares e Impares? (s/n): ");
+        } while (Console.ReadLine().Trim().ToLower() == "s");
+    }
+
+    static void TablaDeMultiplicar()
+    {
+        do
+        {
+            Console.Write("Ingrese un número entero positivo: ");
+            if (int.TryParse(Console.ReadLine(), out int numero))
+            {
+                for (int i = 1; i <= 12; i++)
+                {
+                    Console.WriteLine($"{numero}x{i} = {numero * i}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo.");
+            }
+
+            Console.Write("¿Desea realizar otra operación en Tabla de Multiplicar? (s/n): ");
+        } while (Console.ReadLine().Trim().ToLower() == "s");
+    }
